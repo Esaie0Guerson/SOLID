@@ -3,9 +3,6 @@
 # et modifier la classe Car pour dépendre de cette abstraction plutôt
 #  que d'une implémentation concrète du moteur.
 
-
-
-# Abstraction pour le moteur
 class EngineInterface:
     def start(self):
 pass
