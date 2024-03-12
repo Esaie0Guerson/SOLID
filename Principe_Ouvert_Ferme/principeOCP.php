@@ -1,42 +1,35 @@
 <?php
 
-// Pour respecter le principe OCP, nous pouvons utiliser 
-// l'héritage et le polymorphisme pour créer des classes spécifiques 
-// à chaque type de forme, et une interface commune pour le calcul d'aire.
+//Pour respecter le principe OCP, vous pouvez utiliser l'héritage ou la composition 
+//pour étendre le comportement de la classe sans modifier son code source.
 
-
-interface Shape {
-    public function calculateArea();
+interface StrategieImpression {
+    public function imprimer(Document $document);
 }
-class Circle implements Shape {
-    private $radius;
-    public function __construct($radius) {
-        $this->radius = $radius;
-    }
-    public function calculateArea() {
-        return pi() * pow($this->radius, 2);
+
+class ImprimeurSurPapier implements StrategieImpression {
+    public function imprimer(Document $document) {
+        // Code pour imprimer le document sur papier
     }
 }
 
-class Rectangle implements Shape {
-    private $width;
-    private $height;
-    public function __construct($width, $height) {
-        $this->width = $width;
-        $this->height = $height;
-    }
-    public function calculateArea() {
-        return $this->width * $this->height;
+class ImprimeurSurAppareilMobile implements StrategieImpression {
+    public function imprimer(Document $document) {
+        // Code pour imprimer le document sur un appareil mobile
     }
 }
-class AreaCalculator {
-    public function calculateArea($shapes) {
-        $area = 0;
-        foreach ($shapes as $shape) {
-            $area += $shape->calculateArea();
-        }
-        return $area;
+
+class GestionnaireImpression {
+    private $strategieImpression;
+
+    public function __construct(StrategieImpression $strategieImpression) {
+        $this->strategieImpression = $strategieImpression;
+    }
+
+    public function imprimer(Document $document) {
+        $this->strategieImpression->imprimer($document);
     }
 }
+
 
 ?>

@@ -1,6 +1,7 @@
 <?php
 
-//respecter le principe de responsabilité unique, nous pouvons séparer ces responsabilités en deux classes différentes :
+//respecter le principe de responsabilité unique, nous pouvons séparer ces responsabilités
+// en deux classes différentes :
 class Utilisateur
 {
 private $nom;
@@ -20,14 +21,11 @@ public function enregistrerDansLaBaseDeDonnees(){
        		 // Code pour enregistrer les données de l'utilisateur dans la base de données
    	 }
 }
-
-
-
 class ServiceNotificationParEmail
 {
     public function envoyerNotificationParEmail(Utilisateur $utilisateur, $message) {
-       		// Code pour envoyer une notification par e-mail à l'utilisateur
-              // Cette méthode enregistre également le statut d'envoi de la notification dans la base de données
+    // Code pour envoyer une notification par e-mail à l'utilisateur
+    // Cette méthode enregistre également le statut d'envoi de la notification dans la base de données
                         }
 }
 

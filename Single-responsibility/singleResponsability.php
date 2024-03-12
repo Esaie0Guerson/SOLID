@@ -23,7 +23,8 @@ private $email;
 
    	 public function envoyerNotificationParEmail($message){
         // Code pour envoyer une notification par e-mail à l'utilisateur
-        // Cette méthode enregistre également le statut d'envoi de la notification dans la base de données
+        // Cette méthode enregistre également le statut d'envoi de la notification 
+        //dans la base de données
  	   }
 }
 
